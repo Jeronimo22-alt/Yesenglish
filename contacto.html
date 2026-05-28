@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="es" x-data="{ scrolled: false, mobileMenuOpen: false }" @scroll.window="scrolled = window.scrollY > 20">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto — YES English Institute | Mendoza</title>
+  <meta name="description" content="Contactate con YES English Institute. 3 sedes en Mendoza: Maipú, Godoy Cruz y Luzuriaga. Hacé el Placement Test gratuito y empezá en 48 horas." />
+  <meta property="og:title" content="Contacto — YES English Institute" />
+  <meta property="og:description" content="Hacé el test de nivel o escribinos directamente. En menos de 1 hora te respondemos." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] },
+          colors: {
+            navy:           '#1B2E4B',
+            yellow:         '#F5C200',
+            'yellow-hover': '#D9A900',
+            'bg-alt':       '#F7F8FA',
+            'text-main':    '#1A1A2E',
+            'text-muted':   '#5C6370',
+            success:        '#22C55E',
+          },
+          borderRadius: { card: '12px', btn: '8px' },
+          boxShadow:    { card: '0 2px 16px rgba(0,0,0,0.07)' },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; color: #1A1A2E; overflow-x: hidden; }
+
+    .nav-link { position: relative; padding-bottom: 2px; }
+    .nav-link::after {
+      content: ''; position: absolute; bottom: -2px; left: 0;
+      width: 0; height: 2px; background: #F5C200; transition: width 0.25s ease;
+    }
+    .nav-link:hover::after { width: 100%; }
+
+    /* Input focus ring */
+    .field:focus {
+      outline: none;
+      border-color: #F5C200;
+      box-shadow: 0 0 0 3px rgba(245,194,0,0.18);
+    }
+
+    /* Card hover lift */
+    .card-lift { transition: transform 0.22s ease, box-shadow 0.22s ease; }
+    .card-lift:hover { transform: translateY(-4px); box-shadow: 0 10px 32px rgba(0,0,0,0.10); }
+
+    /* Scroll reveal */
+    .anim-ready { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .anim-ready.visible { opacity: 1; transform: translateY(0); }
+    .anim-ready.d1 { transition-delay: 0.10s; }
+    .anim-ready.d2 { transition-delay: 0.20s; }
+    .anim-ready.d3 { transition-delay: 0.30s; }
+
+    /* WhatsApp float */
+    .wa-float {
+      position: fixed; bottom: 24px; right: 24px; z-index: 999;
+      width: 56px; height: 56px; border-radius: 50%;
+      background: #22C55E; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(34,197,94,0.45);
+      transition: transform 0.2s ease;
+    }
+    .wa-float:hover { transform: scale(1.09); }
+  </style>
+</head>
+
+<body class="bg-white">
+
+<!-- WhatsApp flotante -->
+<a href="https://wa.me/5492612571586" target="_blank" rel="noopener" aria-label="WhatsApp" class="wa-float">
+  <svg class="w-7 h-7" fill="white" viewBox="0 0 24 24">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+
+<!-- =============================================
+     NAVBAR
+     ============================================= -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm transition-all duration-300"
+     :class="scrolled ? 'shadow-md' : ''">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+
+      <a href="index.html" class="flex-shrink-0">
+        <span class="text-2xl font-extrabold text-navy tracking-tight">YES<span class="text-yellow"> English</span></span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-7">
+        <a href="index.html"           class="nav-link text-sm font-semibold text-text-main">Inicio</a>
+        <a href="ninos.html"           class="nav-link text-sm font-semibold text-text-main">Niños</a>
+        <a href="adolescentes.html"    class="nav-link text-sm font-semibold text-text-main">Adolescentes</a>
+        <a href="adultos.html"          class="nav-link text-sm font-semibold text-text-main">Adultos</a>
+        <a href="index.html#sedes"     class="nav-link text-sm font-semibold text-text-main">Sedes</a>
+        <a href="contacto.html"        class="nav-link text-sm font-semibold text-navy border-b-2 border-yellow pb-0.5">Contacto</a>
+      </div>
+
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSepndW98SjiwGrNhOUKCpJHYcxRi99m8pcEKwQ91u3LMt4Bow/viewform"
+         target="_blank" rel="noopener"
+         class="hidden md:inline-flex items-center gap-2 bg-yellow hover:bg-yellow-hover
+                text-navy font-bold text-sm px-5 py-2.5 rounded-btn transition-colors shadow-sm">
+        Hacer el test gratuito
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+
+      <button @click="mobileMenuOpen = !mobileMenuOpen"
+              class="md:hidden p-2 rounded-lg text-navy hover:bg-bg-alt transition-colors" aria-label="Menú">
+        <i x-show="!mobileMenuOpen" data-lucide="menu" class="w-6 h-6"></i>
+        <i x-show="mobileMenuOpen"  data-lucide="x"    class="w-6 h-6"></i>
+      </button>
+    </div>
+  </div>
+
+  <div x-show="mobileMenuOpen"
+       x-transition:enter="transition ease-out duration-200"
+       x-transition:enter-start="opacity-0 -translate-y-2"
+       x-transition:enter-end="opacity-100 translate-y-0"
+       x-transition:leave="transition ease-in duration-150"
+       x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
+       class="md:hidden bg-white border-t border-gray-100 px-4 pt-3 pb-5 space-y-1">
+    <a href="index.html"        @click="mobileMenuOpen=false" class="block py-2.5 px-3 rounded-lg text-sm font-semibold text-text-main hover:bg-bg-alt">Inicio</a>
+    <a href="ninos.html"        @click="mobileMenuOpen=false" class="block py-2.5 px-3 rounded-lg text-sm font-semibold text-text-main hover:bg-bg-alt">Niños</a>
+    <a href="adolescentes.html" @click="mobileMenuOpen=false" class="block py-2.5 px-3 rounded-lg text-sm font-semibold text-text-main hover:bg-bg-alt">Adolescentes</a>
+    <a href="adultos.html"      @click="mobileMenuOpen=false" class="block py-2.5 px-3 rounded-lg text-sm font-semibold text-text-main hover:bg-bg-alt">Adultos</a>
+    <a href="index.html#sedes"  @click="mobileMenuOpen=false" class="block py-2.5 px-3 rounded-lg text-sm font-semibold text-text-main hover:bg-bg-alt">Sedes</a>
+    <a href="contacto.html"     @click="mobileMenuOpen=false" class="block py-2.5 px-3 rounded-lg text-sm font-bold text-navy bg-yellow/10">Contacto</a>
+    <div class="pt-2">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSepndW98SjiwGrNhOUKCpJHYcxRi99m8pcEKwQ91u3LMt4Bow/viewform"
+         target="_blank" rel="noopener"
+         class="flex items-center justify-center gap-2 bg-yellow hover:bg-yellow-hover
+                text-navy font-bold text-sm px-5 py-3 rounded-btn w-full transition-colors">
+        Hacer el test gratuito <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+    </div>
+  </div>
+</nav>
+<div class="h-16"></div>
+
+
+<!-- =============================================
+     HERO SIMPLE
+     ============================================= -->
+<section class="py-16 sm:py-20 bg-gradient-to-br from-white to-bg-alt">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+
+    <!-- Breadcrumb -->
+    <p class="text-text-muted text-sm mb-5 flex items-center justify-center gap-1.5">
+      <a href="index.html" class="hover:text-navy transition-colors">Inicio</a>
+      <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+      <span class="text-navy font-semibold">Contacto</span>
+    </p>
+
+    <h1 class="reveal text-4xl sm:text-5xl font-extrabold text-navy mb-4 leading-tight">
+      ¿Por dónde empezamos?
+    </h1>
+    <p class="reveal d1 text-lg text-text-muted leading-relaxed mb-8 max-w-xl mx-auto">
+      Hacé el test de nivel o escribinos directamente.<br class="hidden sm:block" />
+      En menos de 1 hora te respondemos.
+    </p>
+
+    <div class="reveal d2 flex flex-col sm:flex-row gap-3 justify-center">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSepndW98SjiwGrNhOUKCpJHYcxRi99m8pcEKwQ91u3LMt4Bow/viewform"
+         target="_blank" rel="noopener"
+         class="inline-flex items-center justify-center gap-2 bg-yellow hover:bg-yellow-hover
+                text-navy font-bold text-base px-8 py-4 rounded-btn transition-colors shadow-md">
+        <i data-lucide="clipboard-check" class="w-5 h-5"></i>
+        Hacer el test de nivel (gratis)
+      </a>
+      <a href="https://wa.me/5492612571586" target="_blank" rel="noopener"
+         class="inline-flex items-center justify-center gap-2 border-2 border-navy text-navy
+                hover:bg-navy hover:text-white font-semibold text-base px-8 py-4 rounded-btn
+                transition-all duration-200">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Escribirnos por WhatsApp
+      </a>
+    </div>
+
+    <!-- Trust microcopy -->
+    <p class="reveal d3 mt-6 text-sm text-text-muted flex items-center justify-center gap-2 flex-wrap">
+      <i data-lucide="clock" class="w-4 h-4 text-success flex-shrink-0"></i>
+      Sin compromiso · Respondemos en menos de 1 hora · Lunes a sábado
+    </p>
+  </div>
+</section>
+
+
+<!-- =============================================
+     PLACEMENT TEST — sección destacada
+     ============================================= -->
+<section class="bg-navy py-16 sm:py-20">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6">
+    <div class="grid md:grid-cols-2 gap-10 items-center">
+
+      <!-- Left: texto -->
+      <div class="reveal">
+        <!-- Badge -->
+        <span class="inline-flex items-center gap-1.5 bg-yellow/20 text-yellow font-bold text-xs
+                     px-3 py-1.5 rounded-full mb-5">
+          <i data-lucide="zap" class="w-3.5 h-3.5"></i>
+          Gratis · 10 minutos · Online
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4 leading-tight">
+          ¿No sabés en qué nivel empezar?
+        </h2>
+        <p class="text-white/70 leading-relaxed mb-8">
+          Nuestro Placement Test online tarda 10 minutos y te dice exactamente qué curso es ideal para vos.
+          Gratis, sin compromiso, sin registrarte.
+        </p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSepndW98SjiwGrNhOUKCpJHYcxRi99m8pcEKwQ91u3LMt4Bow/viewform"
+           target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 bg-white hover:bg-bg-alt text-navy font-bold
+                  text-base px-8 py-4 rounded-btn transition-colors shadow-lg">
+          Hacer el test ahora →
+        </a>
+      </div>
+
+      <!-- Right: pasos rápidos -->
+      <div class="reveal d1 space-y-4">
+        <div class="flex items-start gap-4 bg-white/8 rounded-card p-5">
+          <div class="w-9 h-9 rounded-xl bg-yellow flex items-center justify-center flex-shrink-0 font-extrabold text-navy text-sm">1</div>
+          <div>
+            <p class="font-bold text-white text-sm">Completás el test online</p>
+            <p class="text-white/60 text-sm mt-0.5">Sin crear cuenta. Desde el celular o la PC.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 bg-white/8 rounded-card p-5">
+          <div class="w-9 h-9 rounded-xl bg-yellow flex items-center justify-center flex-shrink-0 font-extrabold text-navy text-sm">2</div>
+          <div>
+            <p class="font-bold text-white text-sm">Te contactamos en menos de 1 hora</p>
+            <p class="text-white/60 text-sm mt-0.5">Con el resultado y el curso recomendado para vos.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4 bg-white/8 rounded-card p-5">
+          <div class="w-9 h-9 rounded-xl bg-yellow flex items-center justify-center flex-shrink-0 font-extrabold text-navy text-sm">3</div>
+          <div>
+            <p class="font-bold text-white text-sm">Empezás en menos de 48 horas</p>
+            <p class="text-white/60 text-sm mt-0.5">Con tu grupo, horario y primera clase confirmada.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- =============================================
+     SEDES
+     ============================================= -->
+<section id="sedes" class="py-16 sm:py-20 bg-bg-alt">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center mb-12">
+      <h2 class="reveal text-3xl sm:text-4xl font-extrabold text-navy mb-3">Encontrá tu sede</h2>
+      <p class="reveal d1 text-text-muted max-w-lg mx-auto">
+        Tres ubicaciones en el Gran Mendoza. Buscá la más cercana a tu casa o trabajo.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-7">
+
+      <!-- Sede Maipú -->
+      <div class="reveal d1 card-lift bg-white rounded-card shadow-card overflow-hidden flex flex-col">
+        <!-- Header color -->
+        <div class="bg-navy px-6 py-5 flex items-center justify-between">
+          <div>
+            <p class="text-yellow font-extrabold text-lg">Sede Maipú</p>
+            <span class="inline-block bg-yellow/25 text-yellow text-xs font-bold px-2 py-0.5 rounded-full mt-1">Principal</span>
+          </div>
+          <div class="w-10 h-10 bg-yellow/15 rounded-xl flex items-center justify-center">
+            <i data-lucide="map-pin" class="w-5 h-5 text-yellow"></i>
+          </div>
+        </div>
+
+        <!-- Body -->
+        <div class="p-6 flex flex-col flex-1">
+          <div class="space-y-3 mb-6 flex-1">
+            <div class="flex items-start gap-2.5 text-sm text-text-muted">
+              <i data-lucide="navigation" class="w-4 h-4 text-navy flex-shrink-0 mt-0.5"></i>
+              <span>J.B. Martínez 957, B° Canciller — Maipú, Mendoza</span>
+            </div>
+            <div class="flex items-center gap-2.5 text-sm text-text-muted">
+              <i data-lucide="phone" class="w-4 h-4 text-navy flex-shrink-0"></i>
+              <span>261 257-1586</span>
+            </div>
+            <div class="flex items-center gap-2.5 text-sm text-text-muted">
+              <i data-lucide="clock" class="w-4 h-4 text-navy flex-shrink-0"></i>
+              <span>Lunes a viernes 8:00 – 21:00 · Sábados 9:00 – 13:00</span>
+            </div>
+          </div>
+
+          <!-- Botones -->
+          <div class="grid grid-cols-2 gap-2 mb-2">
+            <a href="tel:+542612571586"
+               class="flex items-center justify-center gap-1.5 border border-navy text-navy
+                      hover:bg-navy hover:text-white text-xs font-bold py-2.5 rounded-btn transition-all">
+              <i data-lucide="phone-call" class="w-3.5 h-3.5"></i>
+              Llamar
+            </a>
+            <a href="https://wa.me/5492612571586" target="_blank" rel="noopener"
+               class="flex items-center justify-center gap-1.5 bg-success hover:bg-green-600
+                      text-white text-xs font-bold py-2.5 rounded-btn transition-colors">
+              <svg class="w-3.5 h-3.5" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+          </div>
+          <a href="https://www.google.com/maps/search/J.B.+Mart%C3%ADnez+957+Ma%C3%ADp%C3%BA+Mendoza"
+             target="_blank" rel="noopener"
+             class="flex items-center justify-center gap-1.5 bg-bg-alt hover:bg-gray-200 text-navy
+                    text-xs font-bold py-2.5 rounded-btn transition-colors w-full">
+            <i data-lucide="map" class="w-3.5 h-3.5"></i>
+            Ver en Google Maps
+          </a>
+        </div>
+      </div>
+
+      <!-- Sede Godoy Cruz -->
+      <div class="reveal d2 card-lift bg-white rounded-card shadow-card overflow-hidden flex flex-col">
+        <div class="bg-navy px-6 py-5 flex items-center justify-between">
+          <div>
+            <p class="text-yellow font-extrabold text-lg">Sede Godoy Cruz</p>
+          </div>
+          <div class="w-10 h-10 bg-yellow/15 rounded-xl flex items-center justify-center">
+            <i data-lucide="map-pin" class="w-5 h-5 text-yellow"></i>
+          </div>
+        </div>
+
+        <div class="p-6 flex flex-col flex-1">
+          <div class="space-y-3 mb-6 flex-1">
+            <div class="flex items-start gap-2.5 text-sm text-text-muted">
+              <i data-lucide="navigation" class="w-4 h-4 text-navy flex-shrink-0 mt-0.5"></i>
+              <span>Víctor Hugo 21 — Godoy Cruz, Mendoza</span>
+            </div>
+            <div class="flex items-center gap-2.5 text-sm text-text-muted">
+              <i data-lucide="phone" class="w-4 h-4 text-navy flex-shrink-0"></i>
+              <span>261 615-5172</span>
+            </div>
+            <div class="flex items-center gap-2.5 text-sm text-text-muted">
+              <i data-lucide="clock" class="w-4 h-4 text-navy flex-shrink-0"></i>
+              <span>Lunes a viernes 8:00 – 21:00 · Sábados 9:00 – 13:00</span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-2 mb-2">
+            <a href="tel:+542616155172"
+               class="flex items-center justify-center gap-1.5 border border-navy text-navy
+                      hover:bg-navy hover:text-white text-xs font-bold py-2.5 rounded-btn transition-all">
+              <i data-lucide="phone-call" class="w-3.5 h-3.5"></i>
+              Llamar
+            </a>
+            <a href="https://wa.me/5492616155172" target="_blank" rel="noopener"
+               class="flex items-center justify-center gap-1.5 bg-success hover:bg-green-600
+                      text-white text-xs font-bold py-2.5 rounded-btn transition-colors">
+              <svg class="w-3.5 h-3.5" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+          </div>
+          <a href="https://www.google.com/maps/search/V%C3%ADctor+Hugo+21+Godoy+Cruz+Mendoza"
+             target="_blank" rel="noopener"
+             class="flex items-center justify-center gap-1.5 bg-bg-alt hover:bg-gray-200 text-navy
+                    text-xs font-bold py-2.5 rounded-btn transition-colors w-full">
+            <i data-lucide="map" class="w-3.5 h-3.5"></i>
+            Ver en Google Maps
+          </a>
+        </div>
+      </div>
+
+      <!-- Sede Luzuriaga -->
+      <div class="reveal d3 card-lift bg-white rounded-card shadow-card overflow-hidden flex flex-col">
+        <div class="bg-navy px-6 py-5 flex items-center justify-between">
+          <div>
+            <p class="text-yellow font-extrabold text-lg">Sede Luzuriaga</p>
+          </div>
+          <div class="w-10 h-10 bg-yellow/15 rounded-xl flex items-center justify-center">
+            <i data-lucide="map-pin" class="w-5 h-5 text-yellow"></i>
+          </div>
+        </div>
+
+        <div class="p-6 flex flex-col flex-1">
+          <div class="space-y-3 mb-6 flex-1">
+            <div class="flex items-start gap-2.5 text-sm text-text-muted">
+              <i data-lucide="navigation" class="w-4 h-4 text-navy flex-shrink-0 mt-0.5"></i>
+              <span>Fortín San Martín 2245 — Luzuriaga, Mendoza</span>
+            </div>
+            <div class="flex items-center gap-2.5 text-sm text-text-muted">
+              <i data-lucide="phone" class="w-4 h-4 text-navy flex-shrink-0"></i>
+              <span>261 616-5849</span>
+            </div>
+            <div class="flex items-center gap-2.5 text-sm text-text-muted">
+              <i data-lucide="clock" class="w-4 h-4 text-navy flex-shrink-0"></i>
+              <span>Lunes a viernes 8:00 – 21:00 · Sábados 9:00 – 13:00</span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-2 mb-2">
+            <a href="tel:+542616165849"
+               class="flex items-center justify-center gap-1.5 border border-navy text-navy
+                      hover:bg-navy hover:text-white text-xs font-bold py-2.5 rounded-btn transition-all">
+              <i data-lucide="phone-call" class="w-3.5 h-3.5"></i>
+              Llamar
+            </a>
+            <a href="https://wa.me/5492616165849" target="_blank" rel="noopener"
+               class="flex items-center justify-center gap-1.5 bg-success hover:bg-green-600
+                      text-white text-xs font-bold py-2.5 rounded-btn transition-colors">
+              <svg class="w-3.5 h-3.5" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+          </div>
+          <a href="https://www.google.com/maps/search/Fort%C3%ADn+San+Mart%C3%ADn+2245+Luzuriaga+Mendoza"
+             target="_blank" rel="noopener"
+             class="flex items-center justify-center gap-1.5 bg-bg-alt hover:bg-gray-200 text-navy
+                    text-xs font-bold py-2.5 rounded-btn transition-colors w-full">
+            <i data-lucide="map" class="w-3.5 h-3.5"></i>
+            Ver en Google Maps
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- =============================================
+     FORMULARIO DE CONTACTO
+     ============================================= -->
+<section id="formulario" class="py-16 sm:py-20 bg-white">
+  <div class="max-w-2xl mx-auto px-4 sm:px-6">
+
+    <div class="text-center mb-10">
+      <h2 class="reveal text-3xl sm:text-4xl font-extrabold text-navy mb-3">Mandanos un mensaje</h2>
+      <p class="reveal d1 text-text-muted">
+        Completá el formulario y te contactamos a la brevedad.
+      </p>
+    </div>
+
+    <!--
+      INSTRUCCIÓN FORMSPREE:
+      1. Creá una cuenta gratis en https://formspree.io
+      2. Creá un nuevo formulario → copiá el endpoint generado
+      3. Reemplazá el action de abajo con tu endpoint:
+         action="https://formspree.io/f/XXXXXXXX"
+      4. Formspree envía los datos al email que configures.
+         Plan gratuito: hasta 50 envíos/mes.
+    -->
+    <form
+      action="https://formspree.io/f/REEMPLAZAR-CON-TU-ID"
+      method="POST"
+      class="reveal d1 bg-white rounded-card shadow-card p-8 space-y-5"
+    >
+      <!-- Nombre -->
+      <div>
+        <label for="nombre" class="block text-sm font-semibold text-text-main mb-1.5">
+          Nombre completo <span class="text-red-400">*</span>
+        </label>
+        <input
+          type="text" id="nombre" name="nombre" required
+          placeholder="Ej: Juan García"
+          class="field w-full border border-gray-200 rounded-btn px-4 py-3 text-sm text-text-main
+                 placeholder-text-muted transition"
+        />
+      </div>
+
+      <!-- Email -->
+      <div>
+        <label for="email" class="block text-sm font-semibold text-text-main mb-1.5">
+          Email <span class="text-red-400">*</span>
+        </label>
+        <div class="relative">
+          <span class="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none">
+            <i data-lucide="mail" class="w-4 h-4 text-text-muted"></i>
+          </span>
+          <input
+            type="email" id="email" name="email" required
+            placeholder="juan@email.com"
+            class="field w-full border border-gray-200 rounded-btn pl-10 pr-4 py-3 text-sm
+                   text-text-main placeholder-text-muted transition"
+          />
+        </div>
+      </div>
+
+      <!-- WhatsApp -->
+      <div>
+        <label for="whatsapp" class="block text-sm font-semibold text-text-main mb-1.5">
+          WhatsApp
+          <span class="text-text-muted font-normal">(para responderte más rápido)</span>
+        </label>
+        <div class="relative">
+          <span class="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none text-text-muted text-sm font-semibold">+54</span>
+          <input
+            type="tel" id="whatsapp" name="whatsapp"
+            placeholder="261 257-0000"
+            class="field w-full border border-gray-200 rounded-btn pl-12 pr-4 py-3 text-sm
+                   text-text-main placeholder-text-muted transition"
+          />
+        </div>
+      </div>
+
+      <!-- Sede de interés -->
+      <div>
+        <label for="sede" class="block text-sm font-semibold text-text-main mb-1.5">
+          Sede de interés <span class="text-red-400">*</span>
+        </label>
+        <div class="relative">
+          <select
+            id="sede" name="sede" required
+            class="field w-full border border-gray-200 rounded-btn px-4 py-3 text-sm
+                   text-text-main appearance-none bg-white pr-10 transition"
+          >
+            <option value="" disabled selected>Seleccioná una sede...</option>
+            <option value="maipu">Maipú — J.B. Martínez 957</option>
+            <option value="godoycruz">Godoy Cruz — Víctor Hugo 21</option>
+            <option value="luzuriaga">Luzuriaga — Fortín San Martín 2245</option>
+            <option value="cualquiera">Cualquiera / No sé todavía</option>
+          </select>
+          <span class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
+            <i data-lucide="chevron-down" class="w-4 h-4 text-text-muted"></i>
+          </span>
+        </div>
+      </div>
+
+      <!-- Mensaje -->
+      <div>
+        <label for="mensaje" class="block text-sm font-semibold text-text-main mb-1.5">
+          Mensaje <span class="text-red-400">*</span>
+        </label>
+        <textarea
+          id="mensaje" name="mensaje" required rows="4"
+          placeholder="¿En qué podemos ayudarte? Contanos tu situación, qué curso te interesa o cualquier duda..."
+          class="field w-full border border-gray-200 rounded-btn px-4 py-3 text-sm
+                 text-text-main placeholder-text-muted transition resize-none"
+        ></textarea>
+      </div>
+
+      <!-- Anti-spam honeypot (oculto, Formspree lo ignora si está vacío) -->
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+      <!-- Redirect after submit (opcional) -->
+      <!-- <input type="hidden" name="_next" value="https://tusitio.com/gracias.html" /> -->
+
+      <!-- Submit -->
+      <div class="pt-1">
+        <button type="submit"
+                class="w-full flex items-center justify-center gap-2 bg-yellow hover:bg-yellow-hover
+                       text-navy font-bold text-base px-8 py-4 rounded-btn transition-colors shadow-sm">
+          <i data-lucide="send" class="w-5 h-5"></i>
+          Enviar consulta
+        </button>
+        <p class="text-center text-xs text-text-muted mt-3 flex items-center justify-center gap-1.5">
+          <i data-lucide="clock" class="w-3.5 h-3.5 text-success"></i>
+          Respondemos en menos de 1 hora en horario de atención
+        </p>
+      </div>
+    </form>
+
+    <!-- Alternativas debajo del form -->
+    <div class="reveal mt-8 grid sm:grid-cols-2 gap-4">
+      <a href="https://wa.me/5492612571586" target="_blank" rel="noopener"
+         class="flex items-center gap-3 bg-success/10 hover:bg-success/20 border border-success/25
+                rounded-card p-4 transition-colors">
+        <svg class="w-8 h-8 text-success flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <div>
+          <p class="text-sm font-bold text-green-800">Preferís WhatsApp</p>
+          <p class="text-xs text-green-700/70">Respondemos más rápido</p>
+        </div>
+      </a>
+      <a href="https://www.instagram.com/yes_english_institute/" target="_blank" rel="noopener"
+         class="flex items-center gap-3 bg-purple-50 hover:bg-purple-100 border border-purple-100
+                rounded-card p-4 transition-colors">
+        <svg class="w-8 h-8 text-purple-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        <div>
+          <p class="text-sm font-bold text-purple-800">Seguinos en Instagram</p>
+          <p class="text-xs text-purple-700/70">@yes_english_institute</p>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- =============================================
+     FOOTER
+     ============================================= -->
+<footer class="bg-navy text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+
+      <div>
+        <a href="index.html" class="text-2xl font-extrabold tracking-tight inline-block mb-3">
+          YES<span class="text-yellow"> English</span>
+        </a>
+        <p class="text-white/60 text-sm leading-relaxed">
+          Enseñamos inglés con pasión.<br />+15 años formando alumnos en Mendoza.
+        </p>
+        <div class="flex items-center gap-1 mt-4">
+          <span class="text-yellow">★★★★★</span>
+          <span class="text-white/50 text-xs ml-1">5.0 en Google</span>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="text-xs font-bold text-white uppercase tracking-widest mb-4">Cursos</h4>
+        <ul class="space-y-2.5">
+          <li><a href="ninos.html"         class="text-white/60 hover:text-yellow text-sm transition-colors">Inglés para niños</a></li>
+          <li><a href="adolescentes.html"  class="text-white/60 hover:text-yellow text-sm transition-colors">Para adolescentes</a></li>
+          <li><a href="adultos.html"      class="text-white/60 hover:text-yellow text-sm transition-colors">Para adultos</a></li>
+          <li>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSepndW98SjiwGrNhOUKCpJHYcxRi99m8pcEKwQ91u3LMt4Bow/viewform"
+               target="_blank" rel="noopener"
+               class="text-yellow hover:text-yellow-hover text-sm font-semibold">
+              → Placement Test gratuito
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-xs font-bold text-white uppercase tracking-widest mb-4">Sedes</h4>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-2">
+            <i data-lucide="map-pin" class="w-4 h-4 text-yellow flex-shrink-0 mt-0.5"></i>
+            <div>
+              <p class="text-white text-sm font-semibold">Maipú</p>
+              <p class="text-white/50 text-xs">J.B. Martínez 957, B° Canciller</p>
+              <a href="tel:+542612571586" class="text-white/50 hover:text-yellow text-xs transition-colors">261 257-1586</a>
+            </div>
+          </li>
+          <li class="flex items-start gap-2">
+            <i data-lucide="map-pin" class="w-4 h-4 text-yellow flex-shrink-0 mt-0.5"></i>
+            <div>
+              <p class="text-white text-sm font-semibold">Godoy Cruz</p>
+              <p class="text-white/50 text-xs">Víctor Hugo 21</p>
+              <a href="tel:+542616155172" class="text-white/50 hover:text-yellow text-xs transition-colors">261 615-5172</a>
+            </div>
+          </li>
+          <li class="flex items-start gap-2">
+            <i data-lucide="map-pin" class="w-4 h-4 text-yellow flex-shrink-0 mt-0.5"></i>
+            <div>
+              <p class="text-white text-sm font-semibold">Luzuriaga</p>
+              <p class="text-white/50 text-xs">Fortín San Martín 2245</p>
+              <a href="tel:+542616165849" class="text-white/50 hover:text-yellow text-xs transition-colors">261 616-5849</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-xs font-bold text-white uppercase tracking-widest mb-4">Seguinos</h4>
+        <div class="flex gap-3 mb-5">
+          <a href="https://www.instagram.com/yes_english_institute/" target="_blank" rel="noopener"
+             aria-label="Instagram"
+             class="w-10 h-10 rounded-xl bg-white/10 hover:bg-yellow hover:text-navy flex items-center justify-center text-white transition-all">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://wa.me/5492612571586" target="_blank" rel="noopener"
+             aria-label="WhatsApp"
+             class="w-10 h-10 rounded-xl bg-white/10 hover:bg-yellow hover:text-navy flex items-center justify-center text-white transition-all">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+        </div>
+        <a href="https://wa.me/5492612571586" target="_blank" rel="noopener"
+           class="flex items-center gap-3 bg-success/20 hover:bg-success/30 border border-success/25
+                  text-white rounded-btn px-4 py-3 transition-colors">
+          <svg class="w-5 h-5 text-success flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <div>
+            <p class="text-xs font-bold">Escribinos por WhatsApp</p>
+            <p class="text-xs text-white/50">Respondemos en minutos</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <p class="text-white/40 text-xs">YES English Institute © 2025. Todos los derechos reservados.</p>
+      <p class="text-white/30 text-xs">Mendoza, Argentina</p>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => lucide.createIcons());
+  document.addEventListener('alpine:initialized', () => lucide.createIcons());
+  new MutationObserver(() => lucide.createIcons())
+    .observe(document.body, { childList: true, subtree: true });
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        revealObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.05 });
+
+  function initReveal() {
+    const vh = window.innerHeight;
+    document.querySelectorAll('.reveal').forEach(el => {
+      const top = el.getBoundingClientRect().top;
+      if (top < vh + 80) {
+        el.classList.add('visible');
+      } else {
+        el.classList.add('anim-ready');
+        revealObserver.observe(el);
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', initReveal);
+  document.addEventListener('alpine:initialized', initReveal);
+</script>
+
+</body>
+</html>

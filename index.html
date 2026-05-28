@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="es" x-data="{ scrolled: false, mobileMenuOpen: false }" @scroll.window="scrolled = window.scrollY > 20">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YES English Institute — Inglés en Mendoza con certificación internacional</title>
+  <meta name="description" content="Instituto de inglés en Mendoza con 15+ años de trayectoria. Cursos para niños, adolescentes y adultos. Grupos reducidos, método PBL y certificación internacional válida de por vida. 3 sedes." />
+  <meta property="og:title" content="YES English Institute — Inglés en Mendoza" />
+  <meta property="og:description" content="Hablá inglés con confianza. En 5 meses, con certificación internacional. 3 sedes en Mendoza, grupos reducidos, método PBL." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://placehold.co/1200x630/1B2E4B/F5C200?text=YES+English+Institute" />
+  <meta property="og:locale" content="es_AR" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="YES English Institute — Inglés en Mendoza" />
+  <meta name="twitter:description" content="15+ años formando alumnos. Certificación internacional válida de por vida." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] },
+          colors: {
+            navy:          '#1B2E4B',
+            yellow:        '#F5C200',
+            'yellow-hover':'#D9A900',
+            'bg-alt':      '#F7F8FA',
+            'text-main':   '#1A1A2E',
+            'text-muted':  '#5C6370',
+            success:       '#22C55E',
+          },
+          borderRadius: { card: '12px', btn: '8px' },
+          boxShadow: { card: '0 2px 16px rgba(0,0,0,0.07)' },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; color: #1A1A2E; overflow-x: hidden; }
+
+    /* Nav underline hover */
+    .nav-link { position: relative; padding-bottom: 2px; }
+    .nav-link::after {
+      content: ''; position: absolute; bottom: -2px; left: 0;
+      width: 0; height: 2px; background: #F5C200;
+      transition: width 0.25s ease;
+    }
+    .nav-link:hover::after { width: 100%; }
+
+    /* Badge pulse */
+    @keyframes badge-pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(245,194,0,0.45); }
+      60%       { box-shadow: 0 0 0 10px rgba(245,194,0,0); }
+    }
+    .badge-pulse { animation: badge-pulse 2.8s ease-in-out infinite; }
+
+    /* Float card */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-10px); }
+    }
+    .float-card { animation: float 5s ease-in-out infinite; }
+
+    /* Scroll-reveal: JS agrega anim-ready ANTES de ocultar - contenido visible por defecto */
+    .anim-ready {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .anim-ready.visible { opacity: 1; transform: translateY(0); }
+    .anim-ready.d1 { transition-delay: 0.08s; }
+    .anim-ready.d2 { transition-delay: 0.16s; }
+    .anim-ready.d3 { transition-delay: 0.24s; }
+    .anim-ready.d4 { transition-delay: 0.32s; }
+
+    /* Card lift */
+    .card-lift { transition: transform 0.22s ease, box-shadow 0.22s ease; }
+    .card-lift:hover { transform: translateY(-5px); box-shadow: 0 12px 36px rgba(0,0,0,0.11); }
+
+    /* Filled stars via CSS (overrides SVG fill="none") */
+    .star-fill { color: #F5C200; fill: #F5C200; stroke: #F5C200; }
+
+    /* WhatsApp float button */
+    .wa-float {
+      position: fixed; bottom: 24px; right: 24px; z-index: 999;
+      width: 56px; height: 56px; border-radius: 50%;
+      background: #22C55E; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(34,197,94,0.45);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .wa-float:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(34,197,94,0.55); }
+  </style>
+</head>
+
+<body class="bg-white">
+
+<!-- =============================================
+     WHATSAPP FLOTANTE (siempre visible)
+     ============================================= -->
+<a href="https://wa.me/5492612571586" target="_blank" rel="noopener" aria-label="WhatsApp" class="wa-float">
+  <svg class="w-7 h-7 text-white" fill="white" viewBox="0 0 24 24">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+
+<!-- =============================================
+     NAVBAR STICKY
+     ============================================= -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm transition-all duration-300"
+     :class="scrolled ? 'shadow-md' : ''">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+
+      <!-- Logo -->
+      <a href="#inicio" class="flex-shrink-0">
+        <span class="text-2xl font-extrabold text-navy tracking-tight">YES<span class="text-yellow"> English</span></span>
+      </a>
+
+      <!-- Desktop links -->
+      <div class="hidden md:flex items-center gap-7">
+        <a href="#inicio"     class="nav-link text-sm font-semibold text-text-main">Inicio</a>
+        <a href="ninos.html" class="nav-link text-sm font-semibold text-text-main">Niños</a>
+        <a href="adolescentes.html" class="nav-link text-sm font-semibold text-text-main">Adolescentes</a>
+        <a href="adultos.html" class="nav-link text-sm font-semibold text-text-main">Adultos</a>
+        <a href="#sedes" class="nav-link text-sm font-semibold text-text-main">Sedes</a>
+        <a href="contacto.html" class="nav-link text-sm font-semibold text-text-main">Contacto</a>
+      </div>
+
+      <!-- CTA desktop -->
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSepndW98SjiwGrNhOUKCpJHYcxRi99m8pcEKwQ91u3LMt4Bow/viewform"
+         target="_blank" rel="noopener"
+         class="hidden md:inline-flex items-center gap-2 bg-yellow hover:bg-yellow-hover text-navy font-bold text-sm px-5 py-2.5 rounded-btn transition-colors shadow-sm">
+        Hacer el test gratuito
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+
+      <!-- Hamburger -->
+      <button @click="mobileMenuOpen = !mobileMenuOpen"
+              class="md:hidden p-2 rounded-lg text-navy hover:bg-bg-alt transition-colors" aria-label="Menú">
+        <i x-show="!mobileMenuOpen" data-lucide="menu"  class="w-6 h-6"></i>
+        <i x-show="mobileMenuOpen"  data-lucide="x"     class="w-6 h-6"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div x-show="mobileMenuOpen"
+       x-transition:enter="transition ease-out duration-200"
+       x-transition:enter-start="opacity-0 -translate-y-2"
+       x-transition:enter-end="opacity-100 translate-y-0"
+       x-transition:leave="transition ease-in duration-150"
+       x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
+       class="md:hidden bg-white border-t border-gray-100 px-4 pt-3 pb-5 space-y-1">
+    <a href="#inicio"   @click="mobileMenuOpen=false" class="block py-2.5 px-3 rounded-lg text-sm font-semibold text-text-main hover:bg-bg-alt">Inicio</a>
+    <a href="ninos.html" @click="mobileMenuOpen=false" class="block py-2.5 px-3 rounded-lg text-sm font-semibold text-text-main hover:bg-bg-alt">Niños</a>
+    <a href="adolescentes.html" @click="mobileMenuOpen=false" class="block py-2.5 px-3 rounded-lg text-sm font-semibold text-text-main hover:bg-bg-alt">Adolescentes</a>
+    <a href="adultos.html" @click="mobileMenuOpen=false" class="block py-2.5 px-3 rounded-lg text-sm font-semibold text-text-main hover:bg-bg-alt">Adultos</a>
+    <a href="#sedes"    @click="mobileMenuOpen=false" class="block py-2.5 px-3 rounded-lg text-sm font-semibold text-text-main hover:bg-bg-alt">Sedes</a>
+    <a href="contacto.html" @click="mobileMenuOpen=false" class="block py-2.5 px-3 rounded-lg text-sm font-semibold text-text-main hover:bg-bg-alt">Contacto</a>
+    <div class="pt-2">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSepndW98SjiwGrNhOUKCpJHYcxRi99m8pcEKwQ91u3LMt4Bow/viewform"
+         target="_blank" rel="noopener"
+         class="flex items-center justify-center gap-2 bg-yellow hover:bg-yellow-hover text-navy font-bold text-sm px-5 py-3 rounded-btn w-full transition-colors">
+        Hacer el test gratuito <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+    </div>
+  </div>
+</nav>
+<div id="inicio"></div>
+
+
+<!-- =============================================
+     HERO
+     ============================================= -->
+<section class="relative min-h-screen flex items-center pt-28 pb-16 md:pt-32 md:pb-20
+                bg-gradient-to-br from-white via-white to-bg-alt overflow-hidden">
+
+  <!-- Decorative blobs -->
+  <div class="absolute top-0 right-0 w-[480px] h-[480px] bg-yellow/6 rounded-full
+              -translate-y-40 translate-x-40 pointer-events-none"></div>
+  <div class="absolute bottom-0 left-0 w-72 h-72 bg-navy/4 rounded-full
+              translate-y-32 -translate-x-24 pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative">
+    <div class="grid lg:grid-cols-5 gap-10 lg:gap-6 items-center">
+
+      <!-- LEFT — 60% (3 of 5 cols) -->
+      <div class="lg:col-span-3 space-y-6">
+
+        <!-- Animated badge -->
+        <span class="reveal inline-flex items-center gap-2 bg-yellow/15 text-yellow-hover
+                     font-bold text-xs sm:text-sm px-4 py-2 rounded-full badge-pulse">
+          🏆 +15 años formando alumnos en Mendoza
+        </span>
+
+        <!-- H1 -->
+        <h1 class="reveal d1 text-4xl sm:text-5xl lg:text-[3.2rem] font-extrabold text-navy leading-[1.12] tracking-tight">
+          Hablá inglés con confianza.<br />
+          <span class="text-yellow">En 5 meses,</span> con certificación<br class="hidden sm:block" />
+          internacional.
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="reveal d2 text-lg text-text-muted leading-relaxed max-w-xl">
+          Clases presenciales en Mendoza para niños, adolescentes y adultos.
+          Grupos reducidos, método PBL y certificado válido de por vida.
+        </p>
+
+        <!-- CTAs -->
+        <div class="reveal d3 flex flex-col sm:flex-row gap-3">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSepndW98SjiwGrNhOUKCpJHYcxRi99m8pcEKwQ91u3LMt4Bow/viewform"
+             target="_blank" rel="noopener"
+             class="inline-flex items-center justify-center gap-2 bg-yellow hover:bg-yellow-hover
+                    text-navy font-bold text-base px-8 py-4 rounded-btn transition-colors shadow-lg">
+            Hacé el test gratuito de nivel
+            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+          </a>
+          <a href="#cursos"
+             class="inline-flex items-center justify-center gap-2 border-2 border-navy text-navy
+                    hover:bg-navy hover:text-white font-semibold text-base px-8 py-4 rounded-btn
+                    transition-all duration-200">
+            Conocé nuestros cursos ↓
+          </a>
+        </div>
+
+        <!-- Microcopy -->
+        <p class="reveal d4 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-text-muted">
+          <i data-lucide="shield-check" class="w-4 h-4 text-success flex-shrink-0"></i>
+          Sin compromiso · Respondemos en menos de 1 hora · 3 sedes en Mendoza
+        </p>
+      </div>
+
+      <!-- RIGHT — 40% (2 of 5 cols) -->
+      <div class="lg:col-span-2 flex justify-center lg:justify-end reveal d2">
+        <div class="float-card w-full max-w-[340px]">
+          <div class="bg-white rounded-2xl shadow-[0_16px_56px_rgba(0,0,0,0.10)] p-7 border border-gray-100">
+
+            <!-- Header -->
+            <div class="flex items-center gap-3 mb-6 pb-5 border-b border-gray-100">
+              <div class="w-11 h-11 rounded-xl bg-yellow flex items-center justify-center flex-shrink-0">
+                <i data-lucide="graduation-cap" class="w-6 h-6 text-navy"></i>
+              </div>
+              <div>
+                <p class="text-sm font-extrabold text-navy">YES English Institute</p>
+                <div class="flex gap-0.5 mt-1">
+                  <span class="text-yellow text-sm">★★★★★</span>
+                  <span class="text-xs text-text-muted ml-1 self-center">5.0 en Google</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Stats 2×2 -->
+            <div class="grid grid-cols-2 gap-3 mb-5">
+              <div class="bg-bg-alt rounded-xl p-4">
+                <p class="text-2xl font-extrabold text-navy">500+</p>
+                <p class="text-xs text-text-muted font-medium mt-0.5">Alumnos activos</p>
+              </div>
+              <div class="bg-navy rounded-xl p-4">
+                <p class="text-2xl font-extrabold text-yellow">15</p>
+                <p class="text-xs text-white/70 font-medium mt-0.5">Años de exp.</p>
+              </div>
+              <div class="bg-yellow/10 rounded-xl p-4">
+                <p class="text-2xl font-extrabold text-navy">3</p>
+                <p class="text-xs text-text-muted font-medium mt-0.5">Sedes</p>
+              </div>
+              <div class="bg-success/10 rounded-xl p-4">
+                <p class="text-2xl font-extrabold text-green-700">100%</p>
+                <p class="text-xs text-text-muted font-medium mt-0.5">Certificados</p>
+              </div>
+            </div>
+
+            <!-- WhatsApp mini CTA -->
+            <a href="https://wa.me/5492612571586" target="_blank" rel="noopener"
+               class="flex items-center gap-3 bg-success/10 hover:bg-success/20 border border-success/20
+                      rounded-btn px-4 py-3 transition-colors text-sm font-semibold text-green-800">
+              <svg class="w-5 h-5 flex-shrink-0 text-success" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              Consultá por WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- =============================================
+     BARRA DE CONFIANZA
+     ============================================= -->
+<div class="bg-navy py-4">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-wrap justify-center md:justify-between items-center gap-x-8 gap-y-3">
+      <div class="flex items-center gap-2.5 text-white">
+        <i data-lucide="calendar-check" class="w-5 h-5 text-yellow flex-shrink-0"></i>
+        <span class="text-sm font-semibold">15+ Años de experiencia</span>
+      </div>
+      <div class="hidden md:block h-5 w-px bg-white/20"></div>
+      <div class="flex items-center gap-2.5 text-white">
+        <i data-lucide="map-pin" class="w-5 h-5 text-yellow flex-shrink-0"></i>
+        <span class="text-sm font-semibold">3 Sedes en Mendoza</span>
+      </div>
+      <div class="hidden md:block h-5 w-px bg-white/20"></div>
+      <div class="flex items-center gap-2.5 text-white">
+        <i data-lucide="award" class="w-5 h-5 text-yellow flex-shrink-0"></i>
+        <span class="text-sm font-semibold">Certificación internacional</span>
+      </div>
+      <div class="hidden md:block h-5 w-px bg-white/20"></div>
+      <div class="flex items-center gap-2.5 text-white">
+        <i data-lucide="users" class="w-5 h-5 text-yellow flex-shrink-0"></i>
+        <span class="text-sm font-semibold">Grupos reducidos</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- =============================================
+     BLOQUE DEL DOLOR
+     ============================================= -->
+<section class="py-20 bg-white">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+    <h2 class="reveal text-3xl sm:text-4xl font-extrabold text-navy mb-10">¿Te suena familiar?</h2>
+
+    <div class="grid md:grid-cols-3 gap-6 mb-12">
+      <div class="reveal d1 card-lift bg-bg-alt rounded-card p-8 text-left">
+        <span class="block text-4xl mb-4">😰</span>
+        <p class="text-base font-medium text-text-main leading-relaxed">
+          Tomaste clases antes pero no podés mantener una conversación fluida
+        </p>
+      </div>
+      <div class="reveal d2 card-lift bg-bg-alt rounded-card p-8 text-left">
+        <span class="block text-4xl mb-4">📚</span>
+        <p class="text-base font-medium text-text-main leading-relaxed">
+          Tu hijo necesita inglés pero en grupos de 30 no aprende nada
+        </p>
+      </div>
+      <div class="reveal d3 card-lift bg-bg-alt rounded-card p-8 text-left">
+        <span class="block text-4xl mb-4">⏰</span>
+        <p class="text-base font-medium text-text-main leading-relaxed">
+          Querés mejorar tu inglés profesional pero el trabajo no te da los tiempos
+        </p>
+      </div>
+    </div>
+
+    <div class="reveal max-w-xl mx-auto">
+      <p class="text-xl text-text-muted mb-6">
+        Eso tiene solución. Y empieza con conocer tu nivel real.
+      </p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSepndW98SjiwGrNhOUKCpJHYcxRi99m8pcEKwQ91u3LMt4Bow/viewform"
+         target="_blank" rel="noopener"
+         class="inline-flex items-center gap-2 bg-yellow hover:bg-yellow-hover text-navy
+                font-bold text-base px-8 py-4 rounded-btn transition-colors shadow-sm">
+        Hacé el test gratuito →
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- =============================================
+     POR QUÉ YES
+     ============================================= -->
+<section class="py-20 bg-bg-alt">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="reveal text-3xl sm:text-4xl font-extrabold text-navy">Por qué elegir YES English Institute</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <div class="reveal d1 card-lift bg-white rounded-card shadow-card p-7">
+        <div class="w-12 h-12 rounded-xl bg-yellow/15 flex items-center justify-center mb-5">
+          <i data-lucide="users" class="w-6 h-6 text-navy"></i>
+        </div>
+        <h3 class="text-lg font-bold text-navy mb-2">Grupos reducidos</h3>
+        <p class="text-text-muted text-sm leading-relaxed">Más tiempo de práctica oral por alumno. Cada clase importa.</p>
+      </div>
+
+      <div class="reveal d2 card-lift bg-white rounded-card shadow-card p-7">
+        <div class="w-12 h-12 rounded-xl bg-yellow/15 flex items-center justify-center mb-5">
+          <i data-lucide="puzzle" class="w-6 h-6 text-navy"></i>
+        </div>
+        <h3 class="text-lg font-bold text-navy mb-2">Método PBL</h3>
+        <p class="text-text-muted text-sm leading-relaxed">Aprendés resolviendo proyectos reales, no memorizando listas de vocabulario.</p>
+      </div>
+
+      <div class="reveal d3 card-lift bg-white rounded-card shadow-card p-7">
+        <div class="w-12 h-12 rounded-xl bg-yellow/15 flex items-center justify-center mb-5">
+          <i data-lucide="trophy" class="w-6 h-6 text-navy"></i>
+        </div>
+        <h3 class="text-lg font-bold text-navy mb-2">Certificación internacional</h3>
+        <p class="text-text-muted text-sm leading-relaxed">Válida de por vida, aceptada por universidades y empresas en todo el mundo.</p>
+      </div>
+
+      <div class="reveal d4 card-lift bg-white rounded-card shadow-card p-7">
+        <div class="w-12 h-12 rounded-xl bg-yellow/15 flex items-center justify-center mb-5">
+          <i data-lucide="map-pin" class="w-6 h-6 text-navy"></i>
+        </div>
+        <h3 class="text-lg font-bold text-navy mb-2">3 sedes en Mendoza</h3>
+        <p class="text-text-muted text-sm leading-relaxed">Siempre hay una sede cerca de tu casa o de tu trabajo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =============================================
+     CURSOS
+     ============================================= -->
+<section id="cursos" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center mb-12">
+      <h2 class="reveal text-3xl sm:text-4xl font-extrabold text-navy">Encontrá tu curso</h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-7">
+
+      <!-- KIDS -->
+      <div class="reveal d1 card-lift rounded-card overflow-hidden shadow-card flex flex-col">
+        <div class="h-44 bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center relative">
+          <span class="text-6xl">🧒</span>
+          <span class="absolute top-3 left-3 bg-white/25 text-white font-bold text-xs px-3 py-1.5 rounded-full">6 a 12 años</span>
+        </div>
+        <div class="bg-white p-7 flex flex-col flex-1">
+          <h3 class="text-xl font-extrabold text-navy mb-2">Para Niños</h3>
+          <p class="text-text-muted text-sm leading-relaxed flex-1 mb-5">
+            Metodología lúdica y proyectos adaptados a cada edad. Grupos pequeños para que cada chico tenga espacio para hablar, preguntar y disfrutar aprendiendo.
+          </p>
+          <a href="ninos.html" class="inline-flex items-center gap-1.5 text-emerald-600 font-bold text-sm hover:gap-3 transition-all">
+            Ver curso <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- TEENS -->
+      <div class="reveal d2 card-lift rounded-card overflow-hidden shadow-card flex flex-col">
+        <div class="h-44 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center relative">
+          <span class="text-6xl">🎒</span>
+          <span class="absolute top-3 left-3 bg-white/25 text-white font-bold text-xs px-3 py-1.5 rounded-full">13 a 17 años</span>
+        </div>
+        <div class="bg-white p-7 flex flex-col flex-1">
+          <h3 class="text-xl font-extrabold text-navy mb-2">Para Adolescentes</h3>
+          <p class="text-text-muted text-sm leading-relaxed flex-1 mb-5">
+            Clases dinámicas con temáticas actuales que conectan con los intereses de los adolescentes. Preparación para exámenes y viajes internacionales incluida.
+          </p>
+          <a href="adolescentes.html" class="inline-flex items-center gap-1.5 text-blue-600 font-bold text-sm hover:gap-3 transition-all">
+            Ver curso <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- ADULTS -->
+      <div class="reveal d3 card-lift rounded-card overflow-hidden shadow-card border-t-4 border-yellow flex flex-col">
+        <div class="h-44 bg-gradient-to-br from-navy to-blue-900 flex items-center justify-center relative">
+          <span class="text-6xl">💼</span>
+          <span class="absolute top-3 left-3 bg-white/20 text-white font-bold text-xs px-3 py-1.5 rounded-full">Adultos</span>
+        </div>
+        <div class="bg-white p-7 flex flex-col flex-1">
+          <div class="flex items-start gap-2 mb-2">
+            <h3 class="text-xl font-extrabold text-navy flex-1">Para Adultos</h3>
+            <span class="inline-flex items-center bg-yellow/20 text-yellow-hover font-bold text-xs px-2.5 py-1 rounded-full flex-shrink-0">
+              ★ Especiales
+            </span>
+          </div>
+          <p class="text-text-muted text-sm leading-relaxed flex-1 mb-5">
+            Inglés general, de negocios y corporativo. Horarios flexibles adaptados a tu vida laboral. Cursos especiales para entrevistas, viajes y certificaciones.
+          </p>
+          <a href="adultos.html" class="inline-flex items-center gap-1.5 text-navy font-bold text-sm hover:gap-3 transition-all">
+            Ver curso <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Placement Test banner -->
+    <div class="reveal mt-8 bg-yellow/10 border border-yellow/30 rounded-card p-5 sm:p-6
+                flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-yellow rounded-xl flex items-center justify-center flex-shrink-0">
+          <i data-lucide="clipboard-check" class="w-5 h-5 text-navy"></i>
+        </div>
+        <p class="font-semibold text-navy text-sm">
+          ¿No sabés tu nivel? → Placement Test gratuito. En 10 minutos sabés exactamente dónde empezar.
+        </p>
+      </div>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSepndW98SjiwGrNhOUKCpJHYcxRi99m8pcEKwQ91u3LMt4Bow/viewform"
+         target="_blank" rel="noopener"
+         class="inline-flex items-center gap-2 bg-yellow hover:bg-yellow-hover text-navy font-bold
+                text-sm px-6 py-3 rounded-btn transition-colors flex-shrink-0 whitespace-nowrap">
+        Placement Test gratuito →
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- =============================================
+     CÓMO FUNCIONA
+     ============================================= -->
+<section class="py-20 bg-bg-alt">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+    <h2 class="reveal text-3xl sm:text-4xl font-extrabold text-navy mb-3">
+      Empezar es más fácil de lo que pensás
+    </h2>
+    <p class="reveal d1 text-text-muted mb-14">Tres pasos. Sin burocracia. Sin esperas.</p>
+
+    <div class="grid md:grid-cols-3 gap-8 relative">
+
+      <!-- Connector (desktop) -->
+      <div class="hidden md:block absolute top-9 left-[calc(33.33%+28px)] right-[calc(33.33%+28px)]
+                  h-0.5 bg-gradient-to-r from-yellow via-yellow/50 to-yellow/20 z-0"></div>
+
+      <!-- Paso 1 -->
+      <div class="reveal d1 relative z-10">
+        <div class="w-20 h-20 bg-yellow rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-md">
+          <span class="text-3xl font-extrabold text-navy">1</span>
+        </div>
+        <h3 class="text-lg font-bold text-navy mb-2">Hacé el test de nivel</h3>
+        <p class="text-text-muted text-sm leading-relaxed">
+          Gratis, online, sin registrarte. Solo 10 minutos para conocer tu punto de partida exacto.
+        </p>
+      </div>
+
+      <!-- Paso 2 -->
+      <div class="reveal d2 relative z-10">
+        <div class="w-20 h-20 bg-navy rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-md">
+          <span class="text-3xl font-extrabold text-yellow">2</span>
+        </div>
+        <h3 class="text-lg font-bold text-navy mb-2">Te recomendamos el curso ideal</h3>
+        <p class="text-text-muted text-sm leading-relaxed">
+          Según tu edad, nivel y objetivos. Un asesor real te llama o escribe en menos de 1 hora.
+        </p>
+      </div>
+
+      <!-- Paso 3 -->
+      <div class="reveal d3 relative z-10">
+        <div class="w-20 h-20 bg-yellow rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-md">
+          <span class="text-3xl font-extrabold text-navy">3</span>
+        </div>
+        <h3 class="text-lg font-bold text-navy mb-2">Empezás en menos de 48 horas</h3>
+        <p class="text-text-muted text-sm leading-relaxed">
+          Con tu grupo, tu horario y tu primera clase. Sin esperas largas ni trámites.
+        </p>
+      </div>
+    </div>
+
+    <div class="reveal mt-12">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSepndW98SjiwGrNhOUKCpJHYcxRi99m8pcEKwQ91u3LMt4Bow/viewform"
+         target="_blank" rel="noopener"
+         class="inline-flex items-center gap-2 bg-yellow hover:bg-yellow-hover text-navy font-bold
+                text-base px-8 py-4 rounded-btn transition-colors shadow-sm">
+        Empezar ahora — es gratis
+        <i data-lucide="arrow-right" class="w-5 h-5"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- =============================================
+     CERTIFICACIONES
+     ============================================= -->
+<section class="py-20 bg-navy">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+    <h2 class="reveal text-3xl sm:text-4xl font-extrabold text-white mb-4">
+      Certificaciones que el mundo reconoce
+    </h2>
+    <p class="reveal d1 text-white/60 max-w-2xl mx-auto mb-12">
+      Cada certificado es válido de por vida y aceptado por universidades y empresas a nivel nacional e internacional.
+    </p>
+
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <div class="reveal d1 card-lift bg-white rounded-card p-8 text-center">
+        <div class="w-16 h-16 bg-navy/8 rounded-2xl flex items-center justify-center mx-auto mb-5">
+          <i data-lucide="award" class="w-8 h-8 text-navy"></i>
+        </div>
+        <h3 class="font-extrabold text-navy text-base leading-snug mb-2">Path International<br />Examinations</h3>
+        <p class="text-text-muted text-xs leading-relaxed">Exámenes de inglés con reconocimiento internacional en universidades y empresas</p>
+      </div>
+
+      <div class="reveal d2 card-lift bg-white rounded-card p-8 text-center">
+        <div class="w-16 h-16 bg-navy/8 rounded-2xl flex items-center justify-center mx-auto mb-5">
+          <i data-lucide="school" class="w-8 h-8 text-navy"></i>
+        </div>
+        <h3 class="font-extrabold text-navy text-base leading-snug mb-2">UTN<br /><span class="font-semibold text-sm">Univ. Tecnológica Nacional</span></h3>
+        <p class="text-text-muted text-xs leading-relaxed">Certificación avalada por la institución universitaria más grande del país</p>
+      </div>
+
+      <div class="reveal d3 card-lift bg-white rounded-card p-8 text-center">
+        <div class="w-16 h-16 bg-navy/8 rounded-2xl flex items-center justify-center mx-auto mb-5">
+          <i data-lucide="building-2" class="w-8 h-8 text-navy"></i>
+        </div>
+        <h3 class="font-extrabold text-navy text-base leading-snug mb-2">Cámara Argentina<br />de Comercio</h3>
+        <p class="text-text-muted text-xs leading-relaxed">Reconocimiento empresarial ampliamente aceptado en el ámbito profesional</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =============================================
+     TESTIMONIOS
+     ============================================= -->
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center mb-12">
+      <h2 class="reveal text-3xl sm:text-4xl font-extrabold text-navy">
+        Lo que dicen quienes ya dieron el paso
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-7">
+
+      <!-- Testimonio 1 -->
+      <div class="reveal d1 card-lift bg-white rounded-card shadow-card p-7">
+        <div class="text-yellow text-lg mb-4 tracking-wide">★★★★★</div>
+        <svg class="w-7 h-7 mb-3" style="fill:#F5C200;opacity:0.4" viewBox="0 0 24 24">
+          <path d="M11.192 15.757c0-.88-.23-1.618-.69-2.217-.326-.412-.768-.683-1.327-.812-.55-.128-1.07-.137-1.54-.028-.16-.95.1-1.956.76-3.022.66-1.065 1.515-1.867 2.558-2.403L9.373 5c-.8.396-1.56.898-2.26 1.505-.71.607-1.34 1.305-1.9 2.094s-.98 1.68-1.25 2.69-.346 2.04-.217 3.1c.168 1.4.62 2.52 1.356 3.35.735.84 1.652 1.26 2.748 1.26.965 0 1.766-.29 2.4-.878.628-.576.94-1.365.94-2.368l.002.003zm9.124 0c0-.88-.23-1.618-.69-2.217-.326-.42-.77-.692-1.327-.817-.56-.124-1.074-.13-1.54-.022-.16-.94.09-1.95.75-3.02.66-1.06 1.514-1.86 2.557-2.4L18.49 5c-.8.396-1.555.898-2.26 1.505-.708.607-1.34 1.305-1.894 2.094-.556.79-.97 1.68-1.24 2.69-.273 1-.345 2.04-.217 3.1.168 1.4.62 2.52 1.356 3.35.735.84 1.652 1.26 2.748 1.26.965 0 1.766-.29 2.4-.878.628-.576.94-1.365.94-2.368l.002.003z"/>
+        </svg>
+        <p class="text-text-main text-sm leading-relaxed mb-6">
+          "Mi hijo pasó de odiar el inglés a pedir que lo lleve a clases. El método que usan hace toda la diferencia."
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 font-bold text-sm flex-shrink-0">LM</div>
+          <div>
+            <p class="text-sm font-bold text-navy">Laura M.</p>
+            <p class="text-xs text-text-muted">Mamá de alumno · Sede Maipú</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonio 2 -->
+      <div class="reveal d2 card-lift bg-white rounded-card shadow-card p-7">
+        <div class="text-yellow text-lg mb-4 tracking-wide">★★★★★</div>
+        <svg class="w-7 h-7 mb-3" style="fill:#F5C200;opacity:0.4" viewBox="0 0 24 24">
+          <path d="M11.192 15.757c0-.88-.23-1.618-.69-2.217-.326-.412-.768-.683-1.327-.812-.55-.128-1.07-.137-1.54-.028-.16-.95.1-1.956.76-3.022.66-1.065 1.515-1.867 2.558-2.403L9.373 5c-.8.396-1.56.898-2.26 1.505-.71.607-1.34 1.305-1.9 2.094s-.98 1.68-1.25 2.69-.346 2.04-.217 3.1c.168 1.4.62 2.52 1.356 3.35.735.84 1.652 1.26 2.748 1.26.965 0 1.766-.29 2.4-.878.628-.576.94-1.365.94-2.368l.002.003zm9.124 0c0-.88-.23-1.618-.69-2.217-.326-.42-.77-.692-1.327-.817-.56-.124-1.074-.13-1.54-.022-.16-.94.09-1.95.75-3.02.66-1.06 1.514-1.86 2.557-2.4L18.49 5c-.8.396-1.555.898-2.26 1.505-.708.607-1.34 1.305-1.894 2.094-.556.79-.97 1.68-1.24 2.69-.273 1-.345 2.04-.217 3.1.168 1.4.62 2.52 1.356 3.35.735.84 1.652 1.26 2.748 1.26.965 0 1.766-.29 2.4-.878.628-.576.94-1.365.94-2.368l.002.003z"/>
+        </svg>
+        <p class="text-text-main text-sm leading-relaxed mb-6">
+          "Hice inglés de negocios y en 5 meses pude dar mi primera presentación en inglés en el trabajo. Impecable."
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 font-bold text-sm flex-shrink-0">RV</div>
+          <div>
+            <p class="text-sm font-bold text-navy">Rodrigo V.</p>
+            <p class="text-xs text-text-muted">Profesional · Sede Godoy Cruz</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonio 3 -->
+      <div class="reveal d3 card-lift bg-white rounded-card shadow-card p-7">
+        <div class="text-yellow text-lg mb-4 tracking-wide">★★★★★</div>
+        <svg class="w-7 h-7 mb-3" style="fill:#F5C200;opacity:0.4" viewBox="0 0 24 24">
+          <path d="M11.192 15.757c0-.88-.23-1.618-.69-2.217-.326-.412-.768-.683-1.327-.812-.55-.128-1.07-.137-1.54-.028-.16-.95.1-1.956.76-3.022.66-1.065 1.515-1.867 2.558-2.403L9.373 5c-.8.396-1.56.898-2.26 1.505-.71.607-1.34 1.305-1.9 2.094s-.98 1.68-1.25 2.69-.346 2.04-.217 3.1c.168 1.4.62 2.52 1.356 3.35.735.84 1.652 1.26 2.748 1.26.965 0 1.766-.29 2.4-.878.628-.576.94-1.365.94-2.368l.002.003zm9.124 0c0-.88-.23-1.618-.69-2.217-.326-.42-.77-.692-1.327-.817-.56-.124-1.074-.13-1.54-.022-.16-.94.09-1.95.75-3.02.66-1.06 1.514-1.86 2.557-2.4L18.49 5c-.8.396-1.555.898-2.26 1.505-.708.607-1.34 1.305-1.894 2.094-.556.79-.97 1.68-1.24 2.69-.273 1-.345 2.04-.217 3.1.168 1.4.62 2.52 1.356 3.35.735.84 1.652 1.26 2.748 1.26.965 0 1.766-.29 2.4-.878.628-.576.94-1.365.94-2.368l.002.003z"/>
+        </svg>
+        <p class="text-text-main text-sm leading-relaxed mb-6">
+          "Viajé con el instituto a Irlanda. Fue una experiencia única que me cambió la visión del mundo."
+        </p>
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-700 font-bold text-sm flex-shrink-0">ST</div>
+          <div>
+            <p class="text-sm font-bold text-navy">Sofía T.</p>
+            <p class="text-xs text-text-muted">Exalumna · Sede Luzuriaga</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =============================================
+     SEDES
+     ============================================= -->
+<section id="sedes" class="py-20 bg-bg-alt">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center mb-12">
+      <h2 class="reveal text-3xl sm:text-4xl font-extrabold text-navy">Estamos en tu barrio</h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-7">
+
+      <!-- Maipú -->
+      <div class="reveal d1 card-lift bg-white rounded-card shadow-card p-7">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-12 h-12 rounded-xl bg-yellow/15 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="map-pin" class="w-6 h-6 text-navy"></i>
+          </div>
+          <div>
+            <h3 class="font-extrabold text-navy text-lg leading-tight">Sede Maipú</h3>
+            <span class="inline-block bg-yellow/20 text-yellow-hover text-xs font-bold px-2 py-0.5 rounded-full mt-0.5">Principal</span>
+          </div>
+        </div>
+        <div class="space-y-2.5 mb-6">
+          <div class="flex items-start gap-2.5 text-text-muted text-sm">
+            <i data-lucide="navigation" class="w-4 h-4 text-navy flex-shrink-0 mt-0.5"></i>
+            J.B. Martínez 957, B° Canciller — Maipú
+          </div>
+          <div class="flex items-center gap-2.5 text-text-muted text-sm">
+            <i data-lucide="phone" class="w-4 h-4 text-navy flex-shrink-0"></i>
+            261 257-1586
+          </div>
+        </div>
+        <a href="https://wa.me/5492612571586" target="_blank" rel="noopener"
+           class="flex items-center justify-center gap-2 bg-success hover:bg-green-600 text-white
+                  font-bold text-sm px-5 py-3 rounded-btn transition-colors w-full">
+          <svg class="w-4 h-4 flex-shrink-0" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp Maipú
+        </a>
+      </div>
+
+      <!-- Godoy Cruz -->
+      <div class="reveal d2 card-lift bg-white rounded-card shadow-card p-7">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-12 h-12 rounded-xl bg-yellow/15 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="map-pin" class="w-6 h-6 text-navy"></i>
+          </div>
+          <h3 class="font-extrabold text-navy text-lg">Sede Godoy Cruz</h3>
+        </div>
+        <div class="space-y-2.5 mb-6">
+          <div class="flex items-start gap-2.5 text-text-muted text-sm">
+            <i data-lucide="navigation" class="w-4 h-4 text-navy flex-shrink-0 mt-0.5"></i>
+            Víctor Hugo 21 — Godoy Cruz
+          </div>
+          <div class="flex items-center gap-2.5 text-text-muted text-sm">
+            <i data-lucide="phone" class="w-4 h-4 text-navy flex-shrink-0"></i>
+            261 615-5172
+          </div>
+        </div>
+        <a href="https://wa.me/5492616155172" target="_blank" rel="noopener"
+           class="flex items-center justify-center gap-2 bg-success hover:bg-green-600 text-white
+                  font-bold text-sm px-5 py-3 rounded-btn transition-colors w-full">
+          <svg class="w-4 h-4 flex-shrink-0" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp Godoy Cruz
+        </a>
+      </div>
+
+      <!-- Luzuriaga -->
+      <div class="reveal d3 card-lift bg-white rounded-card shadow-card p-7">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="w-12 h-12 rounded-xl bg-yellow/15 flex items-center justify-center flex-shrink-0">
+            <i data-lucide="map-pin" class="w-6 h-6 text-navy"></i>
+          </div>
+          <h3 class="font-extrabold text-navy text-lg">Sede Luzuriaga</h3>
+        </div>
+        <div class="space-y-2.5 mb-6">
+          <div class="flex items-start gap-2.5 text-text-muted text-sm">
+            <i data-lucide="navigation" class="w-4 h-4 text-navy flex-shrink-0 mt-0.5"></i>
+            Fortín San Martín 2245 — Luzuriaga
+          </div>
+          <div class="flex items-center gap-2.5 text-text-muted text-sm">
+            <i data-lucide="phone" class="w-4 h-4 text-navy flex-shrink-0"></i>
+            261 616-5849
+          </div>
+        </div>
+        <a href="https://wa.me/5492616165849" target="_blank" rel="noopener"
+           class="flex items-center justify-center gap-2 bg-success hover:bg-green-600 text-white
+                  font-bold text-sm px-5 py-3 rounded-btn transition-colors w-full">
+          <svg class="w-4 h-4 flex-shrink-0" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp Luzuriaga
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =============================================
+     FAQ — Alpine.js accordion
+     ============================================= -->
+<section id="faq" class="py-20 bg-white"
+  x-data="{
+    items: [
+      { q: '¿Cuánto duran los cursos?',
+        a: 'Cada nivel tiene una duración de 5 meses. En ese tiempo pasás de un nivel al siguiente con clases regulares y evaluación continua.',
+        open: false },
+      { q: '¿Los grupos son muy grandes?',
+        a: 'No. Trabajamos con grupos reducidos para garantizar que cada alumno tenga tiempo real de práctica oral. Más conversación, menos banco.',
+        open: false },
+      { q: '¿Qué certificado obtengo?',
+        a: 'Obtenés un certificado avalado por Path International Examinations, la UTN y la Cámara Argentina de Comercio. Es válido de por vida y reconocido por universidades y empresas a nivel nacional e internacional.',
+        open: false },
+      { q: '¿Puedo empezar en cualquier momento del año?',
+        a: 'Constantemente abrimos nuevas inscripciones. Los cupos son limitados, así que te recomendamos consultarnos para saber la disponibilidad del grupo que más te conviene.',
+        open: false },
+      { q: '¿Tienen clases para adultos que trabajan?',
+        a: 'Sí. Contamos con horarios matutinos, vespertinos y nocturnos adaptados a tu vida laboral. Un asesor te ayuda a encontrar el horario que mejor se adapte a tu rutina.',
+        open: false },
+      { q: '¿Cómo sé en qué nivel empezar?',
+        a: 'Con el Placement Test gratuito. Son solo 10 minutos online y te decimos exactamente en qué grupo empezás. Sin adivinanzas, sin grupos equivocados.',
+        open: false }
+    ]
+  }">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="text-center mb-12">
+      <h2 class="reveal text-3xl sm:text-4xl font-extrabold text-navy">Preguntas frecuentes</h2>
+    </div>
+
+    <div class="space-y-3 reveal d1">
+      <template x-for="(item, i) in items" :key="i">
+        <div class="border border-gray-200 rounded-card overflow-hidden">
+          <button @click="item.open = !item.open"
+                  class="w-full flex items-center justify-between px-6 py-5 text-left
+                         hover:bg-bg-alt transition-colors">
+            <span class="font-semibold text-navy text-sm sm:text-base pr-4" x-text="item.q"></span>
+            <div class="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-200"
+                 :class="item.open ? 'bg-yellow/20 rotate-180' : 'bg-bg-alt'">
+              <i data-lucide="chevron-down" class="w-4 h-4 text-navy"></i>
+            </div>
+          </button>
+          <div x-show="item.open"
+               x-transition:enter="transition ease-out duration-200"
+               x-transition:enter-start="opacity-0 max-h-0"
+               x-transition:enter-end="opacity-100"
+               x-transition:leave="transition ease-in duration-150"
+               x-transition:leave-end="opacity-0"
+               class="px-6 pb-5">
+            <p class="text-text-muted text-sm leading-relaxed border-t border-gray-100 pt-4" x-text="item.a"></p>
+          </div>
+        </div>
+      </template>
+    </div>
+  </div>
+</section>
+
+
+<!-- =============================================
+     CTA FINAL
+     ============================================= -->
+<section id="contacto" class="py-20 bg-yellow">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+    <h2 class="reveal text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navy mb-4 leading-tight">
+      Tu próxima oportunidad<br />empieza con una pregunta.
+    </h2>
+    <p class="reveal d1 text-navy/70 text-lg mb-8">
+      Hacé el test gratuito y en 24 horas te decimos cuál es tu próximo paso.
+    </p>
+
+    <div class="reveal d2">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSepndW98SjiwGrNhOUKCpJHYcxRi99m8pcEKwQ91u3LMt4Bow/viewform"
+         target="_blank" rel="noopener"
+         class="inline-flex items-center gap-2 bg-navy hover:bg-navy/90 text-white font-bold
+                text-lg px-10 py-5 rounded-btn transition-colors shadow-xl">
+        Quiero hacer el test gratis →
+      </a>
+    </div>
+
+    <div class="reveal d3 flex items-center justify-center gap-5 mt-8">
+      <a href="https://wa.me/5492612571586" target="_blank" rel="noopener"
+         class="flex items-center gap-2 text-navy font-semibold text-sm hover:opacity-70 transition-opacity">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+      <span class="text-navy/30 text-lg">|</span>
+      <a href="https://www.instagram.com/yes_english_institute/" target="_blank" rel="noopener"
+         class="flex items-center gap-2 text-navy font-semibold text-sm hover:opacity-70 transition-opacity">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        Instagram
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- =============================================
+     FOOTER
+     ============================================= -->
+<footer class="bg-navy text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+
+      <!-- Col 1: Logo + tagline -->
+      <div>
+        <a href="#inicio" class="text-2xl font-extrabold tracking-tight inline-block mb-3">
+          YES<span class="text-yellow"> English</span>
+        </a>
+        <p class="text-white/60 text-sm leading-relaxed">
+          Enseñamos inglés con pasión.<br />+15 años formando alumnos en Mendoza.
+        </p>
+        <div class="flex items-center gap-1 mt-4">
+          <span class="text-yellow">★★★★★</span>
+          <span class="text-white/50 text-xs ml-1">5.0 en Google</span>
+        </div>
+      </div>
+
+      <!-- Col 2: Links -->
+      <div>
+        <h4 class="text-xs font-bold text-white uppercase tracking-widest mb-4">Cursos</h4>
+        <ul class="space-y-2.5">
+          <li><a href="ninos.html" class="text-white/60 hover:text-yellow text-sm transition-colors">Inglés para niños</a></li>
+          <li><a href="adolescentes.html" class="text-white/60 hover:text-yellow text-sm transition-colors">Para adolescentes</a></li>
+          <li><a href="adultos.html" class="text-white/60 hover:text-yellow text-sm transition-colors">Para adultos</a></li>
+          <li><a href="#faq"      class="text-white/60 hover:text-yellow text-sm transition-colors">Preguntas frecuentes</a></li>
+          <li>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSepndW98SjiwGrNhOUKCpJHYcxRi99m8pcEKwQ91u3LMt4Bow/viewform"
+               target="_blank" rel="noopener"
+               class="text-yellow hover:text-yellow-hover text-sm font-semibold transition-colors">
+              → Placement Test gratuito
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Sedes -->
+      <div>
+        <h4 class="text-xs font-bold text-white uppercase tracking-widest mb-4">Sedes</h4>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-2">
+            <i data-lucide="map-pin" class="w-4 h-4 text-yellow flex-shrink-0 mt-0.5"></i>
+            <div>
+              <p class="text-white text-sm font-semibold">Maipú</p>
+              <p class="text-white/50 text-xs">J.B. Martínez 957, B° Canciller</p>
+              <a href="https://wa.me/5492612571586" target="_blank" rel="noopener"
+                 class="text-white/50 hover:text-yellow text-xs transition-colors">261 257-1586</a>
+            </div>
+          </li>
+          <li class="flex items-start gap-2">
+            <i data-lucide="map-pin" class="w-4 h-4 text-yellow flex-shrink-0 mt-0.5"></i>
+            <div>
+              <p class="text-white text-sm font-semibold">Godoy Cruz</p>
+              <p class="text-white/50 text-xs">Víctor Hugo 21</p>
+              <a href="https://wa.me/5492616155172" target="_blank" rel="noopener"
+                 class="text-white/50 hover:text-yellow text-xs transition-colors">261 615-5172</a>
+            </div>
+          </li>
+          <li class="flex items-start gap-2">
+            <i data-lucide="map-pin" class="w-4 h-4 text-yellow flex-shrink-0 mt-0.5"></i>
+            <div>
+              <p class="text-white text-sm font-semibold">Luzuriaga</p>
+              <p class="text-white/50 text-xs">Fortín San Martín 2245</p>
+              <a href="https://wa.me/5492616165849" target="_blank" rel="noopener"
+                 class="text-white/50 hover:text-yellow text-xs transition-colors">261 616-5849</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Social + WhatsApp -->
+      <div>
+        <h4 class="text-xs font-bold text-white uppercase tracking-widest mb-4">Seguinos</h4>
+        <div class="flex gap-3 mb-5">
+          <a href="https://www.instagram.com/yes_english_institute/" target="_blank" rel="noopener"
+             aria-label="Instagram"
+             class="w-10 h-10 rounded-xl bg-white/10 hover:bg-yellow hover:text-navy flex items-center justify-center text-white transition-all duration-200">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://wa.me/5492612571586" target="_blank" rel="noopener"
+             aria-label="WhatsApp"
+             class="w-10 h-10 rounded-xl bg-white/10 hover:bg-yellow hover:text-navy flex items-center justify-center text-white transition-all duration-200">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+        </div>
+        <a href="https://wa.me/5492612571586" target="_blank" rel="noopener"
+           class="flex items-center gap-3 bg-success/20 hover:bg-success/30 border border-success/25
+                  text-white rounded-btn px-4 py-3 transition-colors">
+          <svg class="w-5 h-5 text-success flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <div>
+            <p class="text-xs font-bold">Escribinos por WhatsApp</p>
+            <p class="text-xs text-white/50">Respondemos en minutos</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-2">
+      <p class="text-white/40 text-xs">YES English Institute © 2025. Todos los derechos reservados.</p>
+      <p class="text-white/30 text-xs">Mendoza, Argentina</p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- =============================================
+     SCRIPTS
+     ============================================= -->
+<script>
+  // ── Lucide icons ─────────────────────────────────────────────────────────
+  function initIcons() {
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+  }
+  document.addEventListener('DOMContentLoaded', initIcons);
+  document.addEventListener('alpine:initialized', initIcons);
+
+  // ── Scroll-reveal ─────────────────────────────────────────────────────────
+  // IMPORTANTE: el CSS NO oculta nada por defecto.
+  // JS marca los elementos FUERA del viewport con 'anim-ready' (opacity:0)
+  // y luego los anima. Los que ya son visibles al cargar nunca se ocultan.
+  
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        revealObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.04, rootMargin: '0px 0px -40px 0px' });
+
+  function initReveal() {
+    const vh = window.innerHeight;
+    document.querySelectorAll('.reveal').forEach(el => {
+      const rect = el.getBoundingClientRect();
+      // Copiar clases de delay (d1, d2...) al elemento anim-ready
+      const delayClass = Array.from(el.classList).find(c => /^d[1-4]$/.test(c));
+      if (rect.top < vh - 20) {
+        // Ya visible: mostrar de inmediato, sin animación
+        // (no agregar anim-ready → el elemento queda con opacity normal)
+      } else {
+        // Fuera del viewport: marcar para animar al entrar
+        el.classList.add('anim-ready');
+        if (delayClass) el.classList.add(delayClass);
+        revealObserver.observe(el);
+      }
+    });
+  }
+
+  // Esperar a que Alpine termine antes de inicializar reveal
+  // para evitar que elementos con x-show/x-cloak interfieran
+  function safeInit() {
+    initIcons();
+    // Pequeño delay para asegurar que Alpine ya procesó el DOM
+    setTimeout(initReveal, 50);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', safeInit);
+  } else {
+    safeInit();
+  }
+  document.addEventListener('alpine:initialized', () => {
+    setTimeout(initReveal, 30);
+    initIcons();
+  });
+</script>
+
+</body>
+</html>
