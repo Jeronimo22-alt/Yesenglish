@@ -163,7 +163,7 @@
 <!-- =============================================
      HERO
      ============================================= -->
-<section class="relative overflow-hidden bg-gradient-to-br from-white via-white to-emerald-50 py-16 md:py-24">
+<section class="relative overflow-hidden bg-gradient-to-br from-white via-white to-emerald-50 pt-28 pb-16 md:pt-32 md:pb-24">
 
   <!-- Decorative blobs -->
   <div class="absolute top-0 right-0 w-96 h-96 bg-yellow/6 rounded-full -translate-y-1/3 translate-x-1/3 pointer-events-none"></div>
@@ -790,7 +790,7 @@
         <h4 class="text-xs font-bold text-white uppercase tracking-widest mb-4">Cursos</h4>
         <ul class="space-y-2.5">
           <li><a href="ninos.html"        class="text-yellow hover:text-yellow-hover text-sm font-semibold">Inglés para niños ←</a></li>
-          <li><a href="adolescentes.html"  class="text-white/60 hover:text-yellow text-sm transition-colors">Para adolescentes</a></li>
+          <li><a href="index.html#cursos" class="text-white/60 hover:text-yellow text-sm transition-colors">Para adolescentes</a></li>
           <li><a href="adultos.html"      class="text-white/60 hover:text-yellow text-sm transition-colors">Para adultos</a></li>
           <li>
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSepndW98SjiwGrNhOUKCpJHYcxRi99m8pcEKwQ91u3LMt4Bow/viewform"
@@ -864,32 +864,48 @@
 
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => lucide.createIcons());
-  document.addEventListener('alpine:initialized', () => lucide.createIcons());
-  new MutationObserver(() => lucide.createIcons())
-    .observe(document.body, { childList: true, subtree: true });
+  function initIcons() {
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+  }
 
-  const obs = new IntersectionObserver((entries) => {
+  const revealObs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        revealObs.unobserve(e.target);
+      }
     });
-  }, { threshold: 0.05 });
+  }, { threshold: 0.04, rootMargin: '0px 0px -40px 0px' });
 
   function initReveal() {
     const vh = window.innerHeight;
     document.querySelectorAll('.reveal').forEach(el => {
-      const top = el.getBoundingClientRect().top;
-      if (top < vh + 80) {
-        el.classList.add('visible');
+      const rect = el.getBoundingClientRect();
+      if (rect.top < vh - 20) {
+        // Ya visible al cargar: mostrar de inmediato sin animación
+        el.classList.remove('anim-ready');
       } else {
+        // Fuera del viewport: ocultar y animar al entrar
         el.classList.add('anim-ready');
-        obs.observe(el);
+        revealObs.observe(el);
       }
     });
   }
 
-  document.addEventListener('DOMContentLoaded', initReveal);
-  document.addEventListener('alpine:initialized', initReveal);
+  function safeInit() {
+    initIcons();
+    setTimeout(initReveal, 30);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', safeInit);
+  } else {
+    safeInit();
+  }
+  document.addEventListener('alpine:initialized', () => {
+    initIcons();
+    setTimeout(initReveal, 30);
+  });
 </script>
 
 </body>
