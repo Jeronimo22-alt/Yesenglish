@@ -842,33 +842,48 @@
      SCRIPTS
      ============================================= -->
 <script>
-  document.addEventListener('DOMContentLoaded', () => lucide.createIcons());
-  document.addEventListener('alpine:initialized', () => lucide.createIcons());
-  new MutationObserver(() => lucide.createIcons()).observe(document.body, { childList: true, subtree: true });
+  function initIcons() {
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+  }
 
-  const revealObserver = new IntersectionObserver((entries) => {
+  const revealObs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
         e.target.classList.add('visible');
-        revealObserver.unobserve(e.target);
+        revealObs.unobserve(e.target);
       }
     });
-  }, { threshold: 0.05 });
+  }, { threshold: 0.04, rootMargin: '0px 0px -40px 0px' });
 
   function initReveal() {
     const vh = window.innerHeight;
     document.querySelectorAll('.reveal').forEach(el => {
-      const top = el.getBoundingClientRect().top;
-      if (top < vh + 80) {
-        el.classList.add('visible');
+      const rect = el.getBoundingClientRect();
+      if (rect.top < vh - 20) {
+        // Ya visible al cargar: mostrar de inmediato sin animación
+        el.classList.remove('anim-ready');
       } else {
+        // Fuera del viewport: ocultar y animar al entrar
         el.classList.add('anim-ready');
-        revealObserver.observe(el);
+        revealObs.observe(el);
       }
     });
   }
-  document.addEventListener('DOMContentLoaded', initReveal);
-  document.addEventListener('alpine:initialized', initReveal);
+
+  function safeInit() {
+    initIcons();
+    setTimeout(initReveal, 30);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', safeInit);
+  } else {
+    safeInit();
+  }
+  document.addEventListener('alpine:initialized', () => {
+    initIcons();
+    setTimeout(initReveal, 30);
+  });
 </script>
 
 </body>
